@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Full Stack Progress</title>
+</head>
+<body>
+
+<h2>Full Stack Development Progress</h2>
+
+<a href="/dashboard">⬅ Back to Dashboard</a>
+
+<br><br>
+
+<!-- 📝 Add Topic -->
+<form method="POST">
+
+    <input type="text" name="topic" placeholder="Topic (HTML, CSS, Flask, MongoDB)" required>
+    <br><br>
+
+    <select name="status" required>
+        <option value="pending">Pending</option>
+        <option value="completed">Completed</option>
+    </select>
+
+    <br><br>
+
+    <button type="submit">Add Topic</button>
+</form>
+
+<hr>
+
+<!-- 📊 Display -->
+<h3>Your Full Stack Progress</h3>
+
+{% for item in data %}
+
+<div style="border:1px solid black; padding:10px; margin:10px;">
+
+    <h4>{{ item.topic }}</h4>
+    <p>Status: {{ item.status }}</p>
+
+</div>
+
+{% endfor %}
+
+</body>
+</html>

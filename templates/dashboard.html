@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="dashboard">
+
+    <h1>Welcome {{ username }}</h1>
+
+    <a href="/logout">Logout</a>
+
+    <h3>LearnTrack AI Dashboard</h3>
+
+    <!-- 🔗 Navigation -->
+    <div style="margin: 15px 0;">
+        <a href="/notes" style="padding:10px; background:#4CAF50; color:white; text-decoration:none; border-radius:5px;">
+            📒 Go to Notes
+        </a>
+    </div>
+
+    <!-- 📊 Stats Section -->
+    <div class="stats">
+
+        <div class="box">
+            <h4>DSA Progress</h4>
+            <a href="/dsa" class="box">DSA Progress</a>
+        </div>
+
+        <div class="box">
+            <h4>ML Progress</h4>
+            <a href="/ml" class="box">ML Progress</a>
+        </div>
+
+        <div class="box">
+            <h4>Full Stack Progress</h4>
+            <a href="/fullstack" class="box">Full Stack Progress</a>
+        </div>
+
+        <div class="box">
+            <h4>Aptitude Progress</h4>
+            <a href="/aptitude" class="box">Aptitude Progress</a>
+        </div>
+
+    </div>
+
+    <!-- 📝 Recent Notes Preview (NEW FEATURE) -->
+    <h3 style="margin-top:30px;">Recent Notes</h3>
+
+    {% if notes %}
+        {% for note in notes[:3] %}
+            <div style="border:1px solid #ccc; padding:10px; margin:10px;">
+                <h4>{{ note.title }}</h4>
+                <p>{{ note.content[:100] }}...</p>
+                <small>{{ note.subject }}</small>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No notes yet. Start adding from Notes page.</p>
+    {% endif %}
+
+</div>
+
+{% endblock %}

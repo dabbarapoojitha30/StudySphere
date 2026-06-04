@@ -1,0 +1,21 @@
+<h2>DSA Progress</h2>
+
+<form method="POST">
+    <input type="text" name="topic" placeholder="Topic (Arrays, Trees)" required>
+
+    <select name="status">
+        <option value="pending">Pending</option>
+        <option value="completed">Completed</option>
+    </select>
+
+    <button type="submit">Add</button>
+</form>
+
+<hr>
+
+{% for item in data %}
+<div style="border:1px solid black; margin:10px; padding:10px;">
+    <h4>{{ item.topic }}</h4>
+    <p>Status: {{ item.status }}</p>
+</div>
+{% endfor %}
