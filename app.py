@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from db import db
 from datetime import datetime
-
+import gunicorn
 app = Flask(__name__)
 app.secret_key = "secret123"
 
